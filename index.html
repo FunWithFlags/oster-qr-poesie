@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Osternest Suche</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
+    h1 { text-align: center; }
+    #poem { white-space: pre-wrap; margin-top: 2rem; font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+  <h1>🐰 Osternest Suche</h1>
+  <div id="poem">Lade...</div>
+  <script>
+    // Alle Texte (Escape-Sequenzen \n werden in innerText korrekt als Umbruch dargestellt)
+    const texts = {
+      "Intro": "🎉 Statt Eiern bunt mit Schale,\ngibt’s dies Jahr ‘ne digitale Schale!\nQRs versteckt, mal groß, mal klein –\ndu musst klug und suchend sein.\nRätsel, Reime, viele Fragen –\nnur wer denkt, kann's richtig sagen.\nAlso scan und geh auf Tour,\nder Osterhase grinst – ganz pur!",
+      "T1_Schabracke_1": "Ich bin oft bunt, doch trag kein Kleid,\nich bleib ganz still, bin stets bereit.",
+      "T1_Schabracke_2": "Man setzt sich auf, doch nie auf mich,\nund trotzdem bin ich mittendrin, ganz sicherlich.",
+      "T1_Schabracke_3": "Ich lieg nicht auf dem Bett, nicht auf dem Stuhl,\ndoch ohne mich, da wär’s nicht cool.",
+      "T1_Schabracke_4": "Ich bin kein Sattel, nicht das Ziel –\ndoch trag ich oft das halbe Spiel.",
+      "T2_Gamaschen_1": "Ich bin kein Schuh, doch ganz am Bein,\nman zieht mich an – ich darf dabei sein.",
+      "T2_Gamaschen_2": "Ich schütze, was dir wichtig ist,\nbesonders wenn du draußen bist.",
+      "T2_Gamaschen_3": "Ich bin kein Helm, doch denk an mich,\nwenn’s uneben wird – ich schütz auch dich.",
+      "T2_Gamaschen_4": "Man schnallt mich fest, doch nicht ans Ohr,\nich halt viel aus und komm stets vor.",
+      "T3_Schlafanzug_1": "Wenn Sterne wach, die Welt ganz still,\ndann komm ich, wann immer du willst.",
+      "T3_Schlafanzug_2": "Ich bin nicht das, worauf man liegt,\ndoch etwas, das dich sanft umgibt.",
+      "T3_Schlafanzug_3": "Ich bin kein Traum, kein Kissen auch,\ndoch schmieg ich mich an Bein und Bauch.",
+      "T3_Schlafanzug_4": "Ich bin nicht laut, ich mach nichts hell –\ndoch trag ich dich ins Träumeland ganz schnell.",
+      "S1_Fussmatten_1": "Ich steh nicht auf, ich geh nicht mit,\ndoch täglich spür ich jeden Schritt.",
+      "S1_Fussmatten_2": "Was man verliert, das find ich schnell –\ndoch sag ich nix, ich bin ganz still.",
+      "S1_Fussmatten_3": "Ich bin kein Teppich, nicht fürs Haus,\ndoch sammel ich, was fällt heraus.",
+      "S2_Staubsauger_1": "Ich zieh dich nicht, doch zieh ich ein,\nwas du nicht willst, soll nicht mehr sein.",
+      "S2_Staubsauger_2": "Ich bin kein Wind, doch weht es laut,\nwenn ich erwach, dann wird's versaut.",
+      "S2_Staubsauger_3": "Ich bin ganz klein, doch stark im Tun –\nich helf dir, etwas abzuruhn.",
+      "S2_Staubsauger_4": "Ich bin kein Hund, doch schnüffel ich,\nund saug dabei ganz gründlich dich.",
+      "S3_Ohrstoepsel_1": "Ich bin ganz klein, kaum sichtbar gut,\ndoch oft bin ich dein Schutz in Wut.",
+      "S3_Ohrstoepsel_2": "Wenn alles schreit, dann schrei ich nicht,\nich bring die Ruhe ins Gesicht.",
+      "S3_Ohrstoepsel_3": "Ich tanz nicht mit, ich halt mich raus,\nund bleib bei dir – ganz leis zu Haus.",
+      "S3_Ohrstoepsel_4": "Ich bin kein Freund vom lauten Spiel,\ndoch was ich tu, ist ziemlich viel."
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const el = document.getElementById('poem');
+    if (id && texts[id]) {
+      el.innerText = texts[id];
+    } else {
+      el.innerText = "Scanne einen gültigen QR-Code.\nOder nutze den Link mit \"?id=Intro\" für den Start.";
+    }
+  </script>
+</body>
+</html>
